@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Soothing Stone & Sky -->
-    <!-- Application Structure Plan: The application uses a vertical sidebar for navigation between key implementation phases (Overview, Data Foundation, Business Logic, Time Estimate) and a main content area. This structure provides a clear, focused walkthrough of the backend development stage. Interactive cards detail each task and its time estimate, while a summary table aggregates the total effort. This is more effective than a linear document for project planning and tracking. -->
+    <!-- Application Structure Plan: The application uses a vertical sidebar for navigation between key implementation phases (Overview, Data Foundation, Business Logic, Time Estimate, Roadmap) and a main content area. This structure provides a clear, focused walkthrough. Interactive cards detail each task, a summary table aggregates the total effort, and a new roadmap section visualizes the timeline. -->
     <!-- Visualization & Content Choices: 
-        - Report Info: Implementation tasks with time estimates. Goal: Inform/Organize. Viz: Task cards styled with HTML/Tailwind. Interaction: Hover effects. Justification: Clearly presents distinct tasks and their associated costs.
-        - Report Info: Total time calculation. Goal: Inform/Summarize. Viz: A summary table. Interaction: None needed. Justification: Provides a quick, scannable overview of the total project cost.
+        - Report Info: Implementation tasks with time estimates. Goal: Inform/Organize. Viz: Task cards styled with HTML/Tailwind.
+        - Report Info: Total time calculation. Goal: Inform/Summarize. Viz: A summary table.
+        - Report Info: Project timeline. Goal: Organize/Inform. Viz: A structured timeline/list for the 1.5-week sprint. Interaction: None needed. Justification: Clearly visualizes the schedule and dependencies.
         - Library/Method for all: Vanilla JS for navigation, Tailwind CSS for styling.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -60,6 +61,10 @@
                     <span class="mr-3 text-lg">⏱️</span>
                     <span>Расчет времени</span>
                 </a>
+                 <a href="#roadmap" class="sidebar-link flex items-center py-3 px-6 text-gray-600 hover:bg-gray-100">
+                    <span class="mr-3 text-lg">🗺️</span>
+                    <span>Роудмап</span>
+                </a>
             </nav>
         </aside>
 
@@ -69,12 +74,9 @@
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-bold text-gray-900">Обзор и Цели Этапа</h2>
                     <p class="mt-2 text-gray-600">На данный момент у нас реализован фронтенд в виде страниц с графиками котировок. Этот план описывает первый этап бэкенд-разработки, целью которого является создание надежного API-шлюза для питания этих графиков реальными, структурированными данными.</p>
-
                     <div class="mt-8 p-6 bg-white rounded-lg shadow-sm border-l-4 border-blue-500">
                         <h3 class="font-bold text-lg text-gray-800">Ключевая цель:</h3>
                         <p class="mt-2 text-gray-700">Создать готовый API шлюз с нужными данными, которые надежно хранятся на стороне базы данных, имеют структурный вид и могут быть использованы в любом визуальном компоненте в webapp. Это позволит нам подключить готовые данные к уже существующему прототипу.</p>
-                        <h3 class="font-bold text-lg text-gray-800 mt-4">Долгосрочная цель:</h3>
-                         <p class="mt-2 text-gray-700">После завершения этого этапа, мы сможем переписать webapp на компонентный формат (React), где каждый график будет отдельным, переиспользуемым компонентом.</p>
                     </div>
                 </div>
             </div>
@@ -83,32 +85,20 @@
                  <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-bold text-gray-900">Этап 1: Фундамент данных</h2>
                     <p class="mt-2 text-gray-600">Две ключевые задачи, требующие структурного подхода: структуризация API-контента и его запись в базу данных.</p>
-                    
                     <div class="mt-8 grid md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
                             <h3 class="font-bold text-lg text-gray-800">1. Архитектура API</h3>
-                            <p class="mt-2 text-sm text-gray-600">Сбор необходимых API-шлюзов и структуризация вывода данных. Определяем, какие данные мы получаем, как их очищаем и в каком формате будем отдавать.</p>
+                            <p class="mt-2 text-sm text-gray-600">Сбор необходимых API-шлюзов и структуризация вывода данных.</p>
                             <div class="mt-4 pt-4 border-t border-gray-200">
-                                <p class="text-xs text-gray-500 uppercase font-semibold">Задачи:</p>
-                                <ul class="mt-2 text-sm list-disc list-inside text-gray-700">
-                                    <li>Сбор API шлюзов</li>
-                                    <li>Проектирование запросов и ответов</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 uppercase font-semibold mt-3">Оценка времени:</p>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
                                 <p class="font-bold text-blue-600 text-lg">8 - 15 часов</p>
                             </div>
                         </div>
-
                          <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
                             <h3 class="font-bold text-lg text-gray-800">2. Архитектура Базы Данных</h3>
-                            <p class="mt-2 text-sm text-gray-600">Проектирование логики построения таблиц для наилучшей реализации поиска и получения данных для конечных эндпоинт-запросов.</p>
+                            <p class="mt-2 text-sm text-gray-600">Проектирование логики построения таблиц для наилучшей реализации поиска.</p>
                              <div class="mt-4 pt-4 border-t border-gray-200">
-                                <p class="text-xs text-gray-500 uppercase font-semibold">Задачи:</p>
-                                <ul class="mt-2 text-sm list-disc list-inside text-gray-700">
-                                    <li>Проектирование схемы БД (таблицы, связи)</li>
-                                    <li>Реализация записи данных в БД</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 uppercase font-semibold mt-3">Оценка времени:</p>
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
                                 <p class="font-bold text-blue-600 text-lg">10 - 15 часов</p>
                             </div>
                         </div>
@@ -119,15 +109,10 @@
             <div id="business_logic" class="content-section">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-bold text-gray-900">Этап 2: Бизнес-логика и Метрики</h2>
-                    <p class="mt-2 text-gray-600">После того как данные структурированы и хранятся в БД, необходимо прописать логику взаимодействия с ними и создать алгоритмы вычисления конечных метрик для графиков.</p>
-
+                    <p class="mt-2 text-gray-600">Прописать логику взаимодействия с данными и создать алгоритмы вычисления конечных метрик.</p>
                     <div class="mt-8 bg-white p-6 rounded-lg shadow-sm">
                         <h3 class="font-bold text-lg text-gray-800">Логика под каждый API запрос</h3>
-                        <p class="mt-2 text-gray-700">Для каждого эндпоинта, который будет запрашивать фронтенд, мы должны:</p>
-                        <ul class="mt-3 space-y-2 list-decimal list-inside">
-                            <li>Написать логику взаимодействия с данными из БД (эффективные запросы).</li>
-                            <li>Создать алгоритмы вычисления конечных метрик, которые будут отображаться на визуальных графиках в web app.</li>
-                        </ul>
+                        <p class="mt-2 text-gray-700">Для каждого эндпоинта необходимо написать логику и алгоритмы вычислений.</p>
                          <div class="mt-4 pt-4 border-t border-gray-200">
                              <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
                              <p class="font-bold text-blue-600 text-lg">30 - 60 минут на компонент</p>
@@ -141,7 +126,6 @@
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-bold text-gray-900">Итоговый расчет времени</h2>
                     <p class="mt-2 text-gray-600">Сводная таблица трудозатрат на реализацию первого этапа по созданию API-шлюза.</p>
-
                     <div class="mt-8 bg-white rounded-lg shadow-sm overflow-hidden">
                         <table class="w-full">
                             <thead class="bg-gray-50">
@@ -152,35 +136,67 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">1. Сбор API шлюзов</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">3</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">3</td>
-                                </tr>
-                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">2. Архитектура API запросов</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">5</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">12</td>
-                                </tr>
-                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">3. Архитектура и реализация БД</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">15</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">4. Бизнес-логика (из расчета 20 компонентов)</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">20</td>
-                                </tr>
-                                <tr class="bg-blue-50">
-                                    <td class="px-6 py-4 whitespace-nowrap font-bold text-blue-800">ИТОГО</td>
-                                    <td class="px-6 py-4 whitespace-nowrap font-bold text-blue-800">28 часов</td>
-                                    <td class="px-6 py-4 whitespace-nowrap font-bold text-blue-800">50 часов</td>
-                                </tr>
+                                <tr><td class="px-6 py-4">1. Сбор API шлюзов</td><td class="px-6 py-4">3</td><td class="px-6 py-4">3</td></tr>
+                                <tr><td class="px-6 py-4">2. Архитектура API запросов</td><td class="px-6 py-4">5</td><td class="px-6 py-4">12</td></tr>
+                                <tr><td class="px-6 py-4">3. Архитектура и реализация БД</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
+                                <tr><td class="px-6 py-4">4. Бизнес-логика (20 компонентов)</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
+                                <tr class="bg-blue-50"><td class="px-6 py-4 font-bold text-blue-800">ИТОГО</td><td class="px-6 py-4 font-bold text-blue-800">28 часов</td><td class="px-6 py-4 font-bold text-blue-800">50 часов</td></tr>
                             </tbody>
                         </table>
                     </div>
-                     <p class="mt-4 text-sm text-gray-500">*Расчет бизнес-логики основан на 20 предполагаемых визуальных компонентах (графиках) по 30-60 минут на каждый.</p>
+                </div>
+            </div>
+
+            <div id="roadmap" class="content-section">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900">Роудмап Реализации (Спринт: 1.5 недели)</h2>
+                    <p class="mt-2 text-gray-600">Этот роудмап детализирует план работ на ближайшие полторы недели. Общая трудоемкость оценивается в 28-50 часов.</p>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 1: Проектирование и Создание Фундамента</h3>
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
+                                <h4 class="font-bold">День 1</h4>
+                                <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                    <li><strong>Задача 1: Сбор API шлюзов (3 часа):</strong> Идентификация и анализ внешних API.</li>
+                                    <li><strong>Задача 2 (Начало): Архитектура API (5 часов):</strong> Проектирование эндпоинтов.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
+                                 <h4 class="font-bold">День 2-3</h4>
+                                 <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                     <li><strong>Задача 2 (Завершение): Архитектура API (7 часов):</strong> Финализация контракта API.</li>
+                                     <li><strong>Задача 3 (Начало): Архитектура БД (5 часов):</strong> Проектирование схемы базы данных.</li>
+                                 </ul>
+                            </div>
+                             <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
+                                 <h4 class="font-bold">День 4-5</h4>
+                                  <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                     <li><strong>Задача 3 (Завершение): Архитектура БД (10 часов):</strong> Создание миграций, реализация скриптов.</li>
+                                 </ul>
+                            </div>
+                        </div>
+                         <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-4 rounded-md">
+                             <p class="font-bold">Результат недели 1:</p>
+                             <p>Спроектированы и реализованы основы API и Базы Данных. Система готова к наполнению бизнес-логикой.</p>
+                         </div>
+                    </div>
+                    
+                     <div class="mt-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 2: Реализация Бизнес-Логики</h3>
+                        <div class="space-y-6">
+                             <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
+                                 <h4 class="font-bold">День 6-8</h4>
+                                  <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                     <li><strong>Задача 4: Бизнес-логика для 20 компонентов (10-20 часов):</strong> Последовательная разработка серверной логики для каждого компонента.</li>
+                                 </ul>
+                            </div>
+                        </div>
+                         <div class="mt-6 bg-green-50 border-l-4 border-green-500 text-green-800 p-4 rounded-md">
+                             <p class="font-bold">Результат спринта:</p>
+                             <p>Полностью функционирующий API-шлюз, готовый к интеграции с фронтенд-приложением.</p>
+                         </div>
+                    </div>
                 </div>
             </div>
 
