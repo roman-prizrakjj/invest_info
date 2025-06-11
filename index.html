@@ -64,7 +64,7 @@
                 </a>
                 <a href="#time_estimate" class="sidebar-link flex items-center py-3 px-6 text-gray-600 hover:bg-gray-100">
                     <span class="mr-3 text-lg">⏱️</span>
-                    <span>Расчет времени</span>
+                    <span>Расчет времени и стоимости</span>
                 </a>
                  <a href="#roadmap" class="sidebar-link flex items-center py-3 px-6 text-gray-600 hover:bg-gray-100">
                     <span class="mr-3 text-lg">🗺️</span>
@@ -165,8 +165,8 @@
             
             <div id="time_estimate" class="content-section">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-gray-900">Итоговый расчет времени</h2>
-                    <p class="mt-2 text-gray-600">Сводная таблица трудозатрат на реализацию проекта.</p>
+                    <h2 class="text-3xl font-bold text-gray-900">Итоговый расчет времени и стоимости</h2>
+                    <p class="mt-2 text-gray-600">Сводная таблица трудозатрат и стоимости на реализацию проекта.</p>
                     <div class="mt-8 bg-white rounded-lg shadow-sm overflow-hidden">
                         <table class="w-full">
                             <thead class="bg-gray-50">
@@ -174,19 +174,57 @@
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Задача</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Мин. время (часы)</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Макс. время (часы)</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Стоимость (руб.)</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr><td class="px-6 py-4 font-semibold" colspan="3">Этап 1: Фундамент данных</td></tr>
-                                <tr><td class="px-6 py-4 pl-8">1. Архитектура API</td><td class="px-6 py-4">8</td><td class="px-6 py-4">15</td></tr>
-                                <tr><td class="px-6 py-4 pl-8">2. Архитектура Базы Данных</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
-                                <tr><td class="px-6 py-4 font-semibold" colspan="3">Этап 2: Бизнес-логика и Аналитика</td></tr>
-                                <tr><td class="px-6 py-4 pl-8">3. Парсеры данных</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
-                                <tr><td class="px-6 py-4 pl-8">4. Агрегация и фильтрация</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
-                                <tr><td class="px-6 py-4 pl-8">5. ИИ Аналитика и рекомендации</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
-                                <tr class="bg-blue-50"><td class="px-6 py-4 font-bold text-blue-800">ИТОГО</td><td class="px-6 py-4 font-bold text-blue-800">48 часов</td><td class="px-6 py-4 font-bold text-blue-800">85 часов</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold" colspan="4">Этап 1: Фундамент данных</td></tr>
+                                <tr>
+                                    <td class="px-6 py-4 pl-8">1. Архитектура API</td>
+                                    <td class="px-6 py-4">8</td>
+                                    <td class="px-6 py-4">15</td>
+                                    <td class="px-6 py-4">12 000 - 22 500</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 pl-8">2. Архитектура Базы Данных</td>
+                                    <td class="px-6 py-4">10</td>
+                                    <td class="px-6 py-4">15</td>
+                                    <td class="px-6 py-4">15 000 - 22 500</td>
+                                </tr>
+                                <tr><td class="px-6 py-4 font-semibold" colspan="4">Этап 2: Бизнес-логика и Аналитика</td></tr>
+                                <tr>
+                                    <td class="px-6 py-4 pl-8">3. Парсеры данных</td>
+                                    <td class="px-6 py-4">10</td>
+                                    <td class="px-6 py-4">20</td>
+                                    <td class="px-6 py-4">15 000 - 30 000</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 pl-8">4. Агрегация и фильтрация</td>
+                                    <td class="px-6 py-4">10</td>
+                                    <td class="px-6 py-4">15</td>
+                                    <td class="px-6 py-4">15 000 - 22 500</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 pl-8">5. ИИ Аналитика и рекомендации</td>
+                                    <td class="px-6 py-4">10</td>
+                                    <td class="px-6 py-4">20</td>
+                                    <td class="px-6 py-4">15 000 - 30 000</td>
+                                </tr>
+                                <tr class="bg-blue-50">
+                                    <td class="px-6 py-4 font-bold text-blue-800">ИТОГО</td>
+                                    <td class="px-6 py-4 font-bold text-blue-800">48 часов</td>
+                                    <td class="px-6 py-4 font-bold text-blue-800">85 часов</td>
+                                    <td class="px-6 py-4 font-bold text-blue-800">72 000 - 127 500</td>
+                                </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="mt-8 p-6 bg-green-50 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg text-green-800">Расчет Стоимости Проекта</h3>
+                        <p class="mt-2 text-gray-700">Расчет произведен на основе ставки <strong>1500 рублей в час</strong>.</p>
+                        <p class="mt-4 text-xl font-bold text-gray-900">
+                            Общая стоимость проекта: <span class="text-green-600">от 72 000 до 127 500 рублей</span>.
+                        </p>
                     </div>
                 </div>
             </div>
