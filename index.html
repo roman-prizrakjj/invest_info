@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Chosen Palette: Soothing Stone & Sky -->
     <!-- Application Structure Plan: The application uses a vertical sidebar for navigation between key implementation phases (Overview, Data Foundation, Business Logic, Time Estimate, Roadmap) and a main content area. This structure provides a clear, focused walkthrough. Interactive cards detail each task, a summary table aggregates the total effort, and a new roadmap section visualizes the timeline. -->
     <!-- Visualization & Content Choices: 
@@ -32,6 +33,10 @@
         }
         .content-section.active {
             display: block;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #9ca3af;
         }
     </style>
 </head>
@@ -65,6 +70,10 @@
                     <span class="mr-3 text-lg">🗺️</span>
                     <span>Роудмап</span>
                 </a>
+                <a href="#implementation_schedule" class="sidebar-link flex items-center py-3 px-6 text-gray-600 hover:bg-gray-100">
+                    <span class="mr-3 text-lg">📈</span>
+                    <span>График реализации</span>
+                </a>
             </nav>
         </aside>
 
@@ -72,11 +81,23 @@
             
             <div id="overview" class="content-section">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-gray-900">Обзор и Цели Этапа</h2>
-                    <p class="mt-2 text-gray-600">На данный момент у нас реализован фронтенд в виде страниц с графиками котировок. Этот план описывает первый этап бэкенд-разработки, целью которого является создание надежного API-шлюза для питания этих графиков реальными, структурированными данными.</p>
-                    <div class="mt-8 p-6 bg-white rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <h3 class="font-bold text-lg text-gray-800">Ключевая цель:</h3>
-                        <p class="mt-2 text-gray-700">Создать готовый API шлюз с нужными данными, которые надежно хранятся на стороне базы данных, имеют структурный вид и могут быть использованы в любом визуальном компоненте в webapp. Это позволит нам подключить готовые данные к уже существующему прототипу.</p>
+                    <h2 class="text-3xl font-bold text-gray-900">Обзор и Цели Проекта</h2>
+                    <div class="mt-8 space-y-8">
+                        <!-- Задача -->
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-gray-500">
+                            <h3 class="font-bold text-lg text-gray-800">Задача:</h3>
+                            <p class="mt-2 text-gray-700">Построить комплексное бэкенд-решение, включающее API-шлюз, модули аналитики, агрегации, фильтрации данных, а также интегрированного ИИ-агента.</p>
+                        </div>
+                        <!-- Цель -->
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <h3 class="font-bold text-lg text-gray-800">Цель:</h3>
+                            <p class="mt-2 text-gray-700">Создать готовый API шлюз с нужными данными, которые надежно хранятся на стороне базы данных, имеют структурный вид и могут быть использованы в любом имеющемся у нас фронтенде, будь то Telegram-бот, web-приложение или web-сервис.</p>
+                        </div>
+                        <!-- Условия -->
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-green-500">
+                            <h3 class="font-bold text-lg text-gray-800">Условия Реализации:</h3>
+                            <p class="mt-2 text-gray-700">Реализация на базе EMD Cloud (с использованием внутренних мощностей и инструментов) с возможностью использовать/адаптировать результат под другие проекты/продукты.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,16 +129,36 @@
 
             <div id="business_logic" class="content-section">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-gray-900">Этап 2: Бизнес-логика и Метрики</h2>
-                    <p class="mt-2 text-gray-600">Прописать логику взаимодействия с данными и создать алгоритмы вычисления конечных метрик.</p>
-                    <div class="mt-8 bg-white p-6 rounded-lg shadow-sm">
-                        <h3 class="font-bold text-lg text-gray-800">Логика под каждый API запрос</h3>
-                        <p class="mt-2 text-gray-700">Для каждого эндпоинта необходимо написать логику и алгоритмы вычислений.</p>
-                         <div class="mt-4 pt-4 border-t border-gray-200">
-                             <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
-                             <p class="font-bold text-blue-600 text-lg">30 - 60 минут на компонент</p>
-                             <p class="text-sm text-gray-500">(Предполагается 20 компонентов для MVP)</p>
-                         </div>
+                    <h2 class="text-3xl font-bold text-gray-900">Этап 2: Бизнес-логика и Аналитика</h2>
+                    <p class="mt-2 text-gray-600">Этот этап фокусируется на создании системы сбора, обработки и анализа данных для предоставления пользователю ценных рекомендаций.</p>
+                    <div class="mt-8 grid md:grid-cols-1 gap-6">
+                        <!-- Card 1: Parsers -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                            <h3 class="font-bold text-lg text-gray-800">1. Парсеры данных</h3>
+                            <p class="mt-2 text-sm text-gray-600">Разработка и внедрение парсеров для сбора данных из различных информационных источников, включая Telegram-каналы, RSS-ленты и новостные сайты.</p>
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
+                                <p class="font-bold text-blue-600 text-lg">10 - 20 часов</p>
+                            </div>
+                        </div>
+                        <!-- Card 2: Aggregation -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                            <h3 class="font-bold text-lg text-gray-800">2. Агрегированная информация</h3>
+                            <p class="mt-2 text-sm text-gray-600">Создание механизма для агрегации собранной информации и ее фильтрации по заданным пользователем критериям (например, по компаниям, секторам, ключевым словам).</p>
+                             <div class="mt-4 pt-4 border-t border-gray-200">
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
+                                <p class="font-bold text-blue-600 text-lg">10 - 15 часов</p>
+                            </div>
+                        </div>
+                        <!-- Card 3: AI Analytics -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                            <h3 class="font-bold text-lg text-gray-800">3. Аналитика на основе ИИ</h3>
+                            <p class="mt-2 text-sm text-gray-600">Интеграция обученного ИИ-агента для глубокого анализа данных о портфеле пользователя и новостного потока. Система будет формировать развернутые инвестиционные рекомендации.</p>
+                             <div class="mt-4 pt-4 border-t border-gray-200">
+                                <p class="text-xs text-gray-500 uppercase font-semibold">Оценка времени:</p>
+                                <p class="font-bold text-blue-600 text-lg">10 - 20 часов</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,7 +166,7 @@
             <div id="time_estimate" class="content-section">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-bold text-gray-900">Итоговый расчет времени</h2>
-                    <p class="mt-2 text-gray-600">Сводная таблица трудозатрат на реализацию первого этапа по созданию API-шлюза.</p>
+                    <p class="mt-2 text-gray-600">Сводная таблица трудозатрат на реализацию проекта.</p>
                     <div class="mt-8 bg-white rounded-lg shadow-sm overflow-hidden">
                         <table class="w-full">
                             <thead class="bg-gray-50">
@@ -136,11 +177,14 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr><td class="px-6 py-4">1. Сбор API шлюзов</td><td class="px-6 py-4">3</td><td class="px-6 py-4">3</td></tr>
-                                <tr><td class="px-6 py-4">2. Архитектура API запросов</td><td class="px-6 py-4">5</td><td class="px-6 py-4">12</td></tr>
-                                <tr><td class="px-6 py-4">3. Архитектура и реализация БД</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
-                                <tr><td class="px-6 py-4">4. Бизнес-логика (20 компонентов)</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
-                                <tr class="bg-blue-50"><td class="px-6 py-4 font-bold text-blue-800">ИТОГО</td><td class="px-6 py-4 font-bold text-blue-800">28 часов</td><td class="px-6 py-4 font-bold text-blue-800">50 часов</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold" colspan="3">Этап 1: Фундамент данных</td></tr>
+                                <tr><td class="px-6 py-4 pl-8">1. Архитектура API</td><td class="px-6 py-4">8</td><td class="px-6 py-4">15</td></tr>
+                                <tr><td class="px-6 py-4 pl-8">2. Архитектура Базы Данных</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
+                                <tr><td class="px-6 py-4 font-semibold" colspan="3">Этап 2: Бизнес-логика и Аналитика</td></tr>
+                                <tr><td class="px-6 py-4 pl-8">3. Парсеры данных</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
+                                <tr><td class="px-6 py-4 pl-8">4. Агрегация и фильтрация</td><td class="px-6 py-4">10</td><td class="px-6 py-4">15</td></tr>
+                                <tr><td class="px-6 py-4 pl-8">5. ИИ Аналитика и рекомендации</td><td class="px-6 py-4">10</td><td class="px-6 py-4">20</td></tr>
+                                <tr class="bg-blue-50"><td class="px-6 py-4 font-bold text-blue-800">ИТОГО</td><td class="px-6 py-4 font-bold text-blue-800">48 часов</td><td class="px-6 py-4 font-bold text-blue-800">85 часов</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -149,55 +193,113 @@
 
             <div id="roadmap" class="content-section">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-gray-900">Роудмап Реализации (Спринт: 1.5 недели)</h2>
-                    <p class="mt-2 text-gray-600">Этот роудмап детализирует план работ на ближайшие полторы недели. Общая трудоемкость оценивается в 28-50 часов.</p>
+                    <h2 class="text-3xl font-bold text-gray-900">Роудмап Реализации (Спринт: 2 недели)</h2>
+                    <p class="mt-2 text-gray-600">Этот роудмап детализирует план работ на проект. Общая трудоемкость оценивается в 48-85 часов.</p>
                     
+                    <!-- Week 1 -->
                     <div class="mt-8">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 1: Проектирование и Создание Фундамента</h3>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 1: Фундамент и Сбор Данных</h3>
                         <div class="space-y-6">
                             <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
-                                <h4 class="font-bold">День 1</h4>
+                                <h4 class="font-bold">Дни 1-5</h4>
                                 <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
-                                    <li><strong>Задача 1: Сбор API шлюзов (3 часа):</strong> Идентификация и анализ внешних API.</li>
-                                    <li><strong>Задача 2 (Начало): Архитектура API (5 часов):</strong> Проектирование эндпоинтов.</li>
+                                    <li><strong>Задачи 1-2: Архитектура API и БД (18 - 30 часов):</strong> Полная разработка и реализация серверной основы.</li>
+                                    <li><strong>Задача 3: Разработка парсеров (10 - 20 часов):</strong> Создание и тестирование механизмов сбора данных.</li>
                                 </ul>
                             </div>
-                            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
-                                 <h4 class="font-bold">День 2-3</h4>
-                                 <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
-                                     <li><strong>Задача 2 (Завершение): Архитектура API (7 часов):</strong> Финализация контракта API.</li>
-                                     <li><strong>Задача 3 (Начало): Архитектура БД (5 часов):</strong> Проектирование схемы базы данных.</li>
-                                 </ul>
-                            </div>
-                             <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
-                                 <h4 class="font-bold">День 4-5</h4>
-                                  <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
-                                     <li><strong>Задача 3 (Завершение): Архитектура БД (10 часов):</strong> Создание миграций, реализация скриптов.</li>
-                                 </ul>
-                            </div>
                         </div>
-                         <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-4 rounded-md">
+                        <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-4 rounded-md">
                              <p class="font-bold">Результат недели 1:</p>
-                             <p>Спроектированы и реализованы основы API и Базы Данных. Система готова к наполнению бизнес-логикой.</p>
-                         </div>
+                             <p>Создана и протестирована вся базовая инфраструктура. Система начинает автоматически собирать и сохранять данные.</p>
+                        </div>
                     </div>
                     
-                     <div class="mt-10">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 2: Реализация Бизнес-Логики</h3>
+                    <!-- Week 2 -->
+                    <div class="mt-10">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Неделя 2: Обработка, Аналитика и Рекомендации</h3>
                         <div class="space-y-6">
                              <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300">
-                                 <h4 class="font-bold">День 6-8</h4>
+                                 <h4 class="font-bold">Дни 6-10</h4>
                                   <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
-                                     <li><strong>Задача 4: Бизнес-логика для 20 компонентов (10-20 часов):</strong> Последовательная разработка серверной логики для каждого компонента.</li>
-                                 </ul>
+                                     <li><strong>Задача 4: Агрегация и фильтрация (10 - 15 часов):</strong> Реализация логики обработки и структурирования данных.</li>
+                                     <li><strong>Задача 5: ИИ Аналитика (10 - 20 часов):</strong> Интеграция ИИ, разработка API для получения рекомендаций и финальное тестирование.</li>
+                                  </ul>
                             </div>
                         </div>
-                         <div class="mt-6 bg-green-50 border-l-4 border-green-500 text-green-800 p-4 rounded-md">
-                             <p class="font-bold">Результат спринта:</p>
-                             <p>Полностью функционирующий API-шлюз, готовый к интеграции с фронтенд-приложением.</p>
-                         </div>
+                        <div class="mt-6 bg-green-50 border-l-4 border-green-500 text-green-800 p-4 rounded-md">
+                             <p class="font-bold">Результат проекта:</p>
+                             <p>Полностью функционирующий бэкенд, способный собирать, анализировать данные и предоставлять пользователю развернутые рекомендации.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <div id="implementation_schedule" class="content-section">
+                 <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">График Реализации: Поток Данных</h2>
+                    <div class="flex flex-col items-center space-y-4">
+                        
+                        <!-- Step 1 -->
+                        <div class="w-full md:w-3/4 bg-white p-4 rounded-lg shadow text-center">
+                            <h3 class="font-bold text-gray-800">1. API Агрегаторов Информации</h3>
+                            <p class="text-sm text-gray-600">Сбор данных из внешних источников</p>
+                        </div>
+                        <i class="fas fa-arrow-down flow-arrow"></i>
+                        
+                        <!-- Step 2 -->
+                        <div class="w-full md:w-3/4 bg-white p-4 rounded-lg shadow text-center">
+                            <h3 class="font-bold text-gray-800">2. Структуризация и Очистка Информации</h3>
+                            <p class="text-sm text-gray-600">Приведение данных к единому формату</p>
+                        </div>
+                        <i class="fas fa-arrow-down flow-arrow"></i>
+
+                        <!-- Step 3 -->
+                        <div class="w-full md:w-3/4 bg-white p-4 rounded-lg shadow text-center">
+                             <h3 class="font-bold text-gray-800">3. Запись Информации в БД</h3>
+                             <p class="text-sm text-gray-600">Надежное хранение обработанных данных</p>
+                        </div>
+                        <i class="fas fa-arrow-down flow-arrow"></i>
+
+                        <!-- Step 4 -->
+                        <div class="w-full md:w-3/4 bg-white p-4 rounded-lg shadow text-center">
+                             <h3 class="font-bold text-gray-800">4. Запрос Информации из БД</h3>
+                             <p class="text-sm text-gray-600">Доступ по динамическим ключам и фильтрам</p>
+                        </div>
+                        
+                        <!-- Fork -->
+                        <div class="w-full flex justify-center items-center my-4">
+                            <div class="w-1/3 h-px bg-gray-300"></div>
+                            <i class="fas fa-code-branch fa-rotate-90 flow-arrow mx-4"></i>
+                            <div class="w-1/3 h-px bg-gray-300"></div>
+                        </div>
+
+                        <div class="w-full flex flex-col md:flex-row justify-around items-stretch">
+                            <!-- Branch 1 -->
+                            <div class="w-full md:w-5/12 flex flex-col items-center">
+                                <i class="fas fa-arrow-down flow-arrow mb-4"></i>
+                                <div class="w-full bg-blue-50 p-4 rounded-lg shadow text-center flex-grow">
+                                     <h3 class="font-bold text-blue-800">Отправка во Фронтенд</h3>
+                                     <p class="text-sm text-blue-600">Готовые новости и события для пользователя</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Branch 2 -->
+                             <div class="w-full md:w-5/12 flex flex-col items-center mt-8 md:mt-0">
+                                <i class="fas fa-arrow-down flow-arrow mb-4"></i>
+                                <div class="w-full bg-purple-50 p-4 rounded-lg shadow text-center mb-4">
+                                     <h3 class="font-bold text-purple-800">Отправка в ИИ Агент</h3>
+                                     <p class="text-sm text-purple-600">Оценка и составление рекомендаций</p>
+                                </div>
+                                <i class="fas fa-arrow-down flow-arrow"></i>
+                                <div class="w-full bg-green-50 p-4 rounded-lg shadow text-center flex-grow">
+                                     <h3 class="font-bold text-green-800">Отправка во Фронтенд</h3>
+                                     <p class="text-sm text-green-600">Развернутые рекомендации для пользователя</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                 </div>
             </div>
 
         </main>
@@ -239,6 +341,7 @@
             
             window.addEventListener('hashchange', () => showSection(window.location.hash));
 
+            // Set initial section based on hash or default to #overview
             showSection(window.location.hash);
         });
     </script>
